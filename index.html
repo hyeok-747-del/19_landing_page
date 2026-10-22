@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>대구 파티룸 | 노바 프라이빗 라운지 NOVA</title>
+
+    <meta
+      name="description"
+      content="대구 프라이빗 파티룸 NOVA PRIVATE LOUNGE. 브라이덜샤워, 생일파티, 돌잔치, 가족모임, 출장뷔페 서비스를 위한 프라이빗 공간."
+    />
+
+    <meta
+      name="keywords"
+      content="대구 파티룸, 대구 브라이덜샤워, 대구 공간대여, 대구 출장뷔페, 대구 케이터링, 대구 생일파티, 대구 돌잔치, 노바 파티룸"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* 출장뷔페 */
+      .catering {
+        background: #151515;
+      }
+
+      .catering-container {
+        max-width: 850px;
+        margin: 50px auto 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+      }
+
+      .catering-card {
+        padding: 45px 30px;
+        background: #222;
+        border: 1px solid #444;
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+
+      .catering-card:hover {
+        transform: translateY(-6px);
+        border-color: #d6b67a;
+      }
+
+      .catering-card.premium {
+        border-color: #d6b67a;
+      }
+
+      .catering-label {
+        color: #d6b67a;
+        font-size: 12px;
+        letter-spacing: 3px;
+      }
+
+      .catering-card h3 {
+        font-size: 26px;
+        margin: 15px 0;
+      }
+
+      .catering-price {
+        color: #d6b67a;
+        font-size: 34px;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+
+      .catering-price small {
+        font-size: 14px;
+        font-weight: normal;
+        color: #bbb;
+      }
+
+      .catering-card > p {
+        color: #ccc;
+      }
+
+      .catering-detail {
+        margin: 25px 0;
+        padding: 20px 0;
+        border-top: 1px solid #444;
+        border-bottom: 1px solid #444;
+        color: #bbb;
+        font-size: 14px;
+        line-height: 2.2;
+      }
+
+      .catering-btn {
+        display: inline-block;
+        padding: 13px 35px;
+        color: #d6b67a;
+        border: 1px solid #d6b67a;
+        font-size: 13px;
+        transition: 0.3s;
+      }
+
+      .catering-btn:hover {
+        background: #d6b67a;
+        color: #111;
+      }
+
+      /* 예약 신청 */
+      .reservation {
+        background: #191919;
+      }
+
+      .reservation-form {
+        max-width: 750px;
+        margin: 45px auto 0;
+        padding: 40px;
+        background: #222;
+        border: 1px solid #444;
+        border-radius: 12px;
+        text-align: left;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        color: #eee;
+        font-size: 14px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        min-width: 0;
+        padding: 15px;
+        background: #151515;
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #fff;
+        font-family: inherit;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: #d6b67a;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: #888;
+      }
+
+      .form-group input[type="date"] {
+        color-scheme: dark;
+      }
+
+      .form-group select option {
+        background: #151515;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+      }
+
+      .form-help {
+        color: #aaa;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+
+      /* 예약 금액 */
+      .reservation-summary {
+        background: #171717;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 25px;
+        margin: 15px 0 30px;
+      }
+
+      .reservation-summary h3 {
+        color: #d6b67a;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 12px 0;
+        color: #bbb;
+        font-size: 14px;
+      }
+
+      .summary-row strong {
+        color: #fff;
+        text-align: right;
+      }
+
+      .summary-total {
+        margin-top: 12px;
+        padding-top: 22px;
+        border-top: 1px solid #555;
+        font-size: 17px;
+      }
+
+      .summary-total strong {
+        color: #d6b67a;
+        font-size: 23px;
+      }
+
+      .reservation-submit {
+        display: block;
+        width: 100%;
+        padding: 17px;
+        border: none;
+        border-radius: 6px;
+        background: #d6b67a;
+        color: #111;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .reservation-submit:hover {
+        background: #f0d6a1;
+      }
+
+      .reservation-notice {
+        margin-top: 20px;
+        color: #999;
+        font-size: 12px;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      @media (max-width: 700px) {
+        .catering-container,
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .reservation-form {
+          padding: 24px 18px;
+        }
+
+        .catering-card {
+          padding: 35px 20px;
+        }
+
+        .summary-total strong {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="#home" class="logo"> NOVA <span>PRIVATE LOUNGE</span> </a>
+
+        <div class="nav-links">
+          <a href="#home">HOME</a>
+          <a href="#about">ABOUT</a>
+          <a href="#space">SPACE</a>
+          <a href="#gallery">GALLERY</a>
+          <a href="#pricing">PRICING</a>
+          <a href="#catering">CATERING</a>
+          <a href="#reservation">RESERVATION</a>
+          <a href="#contact">CONTACT</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 메인 -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">EXCLUSIVE PRIVATE SPACE</p>
+          <h1>NOVA</h1>
+          <h2>PRIVATE LOUNGE</h2>
+          <div class="gold-line"></div>
+
+          <p class="hero-description">
+            특별한 순간을 더욱 특별하게.<br />
+            오직 당신만을 위한 프라이빗 공간
+          </p>
+
+          <a href="#gallery" class="btn">EXPLORE NOVA</a>
+        </div>
+      </section>
+
+      <!-- 소개 -->
+      <section id="about" class="section about">
+        <p class="section-label">ABOUT NOVA</p>
+        <h2>당신의 특별한 순간을 위한 공간</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-description">
+          NOVA PRIVATE LOUNGE는 소중한 사람들과<br />
+          특별한 시간을 보내기 위한 프라이빗 라운지입니다.<br /><br />
+          브라이덜샤워, 생일파티, 돌잔치, 가족 모임까지.<br />
+          다양한 순간을 아름다운 추억으로 만들어보세요.
+        </p>
+      </section>
+
+      <!-- 공간 활용 소개 -->
+      <section id="space" class="section space">
+        <p class="section-label">OUR SPACE</p>
+        <h2>특별한 공간, 특별한 경험</h2>
+        <div class="gold-line"></div>
+
+        <div class="space-container">
+          <div class="space-card">
+            <div class="space-icon">01</div>
+            <h3>BRIDAL SHOWER</h3>
+            <p>브라이덜샤워</p>
+            <p>인생에서 가장 아름다운 순간을 위한 공간</p>
+          </div>
+
+          <div class="space-card">
+            <div class="space-icon">02</div>
+            <h3>BIRTHDAY PARTY</h3>
+            <p>생일파티</p>
+            <p>소중한 사람들과 함께하는 특별한 하루</p>
+          </div>
+
+          <div class="space-card">
+            <div class="space-icon">03</div>
+            <h3>PRIVATE GATHERING</h3>
+            <p>프라이빗 모임</p>
+            <p>가족 모임, 돌잔치, 회식 등 다양한 행사</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 공간 사진 -->
+      <section id="gallery" class="section gallery">
+        <p class="section-label">NOVA GALLERY</p>
+        <h2>공간 둘러보기</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-description">
+          특별한 순간이 시작되는 공간.<br />
+          NOVA PRIVATE LOUNGE의 다양한 모습을 만나보세요.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/space1.jpg" alt="메인 라운지" />
+            <div class="gallery-caption">MAIN LOUNGE</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/space2.jpg" alt="다이닝 공간" />
+            <div class="gallery-caption">DINING SPACE</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/space3.jpg" alt="포토존" />
+            <div class="gallery-caption">PHOTO ZONE</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/space4.jpg" alt="파티 공간" />
+            <div class="gallery-caption">PARTY SPACE</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/space5.jpg" alt="창가 공간" />
+            <div class="gallery-caption">WINDOW VIEW</div>
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/space6.jpg" alt="인테리어" />
+            <div class="gallery-caption">NOVA INTERIOR</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 이용 금액 -->
+      <section id="pricing" class="section pricing">
+        <p class="section-label">PRICE GUIDE</p>
+        <h2>이용 금액 안내</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-description">
+          NOVA PRIVATE LOUNGE 이용 요금을 안내드립니다.
+        </p>
+
+        <div class="pricing-container">
+          <div class="price-card">
+            <p class="price-label">WEEKDAY</p>
+            <h3>평일</h3>
+            <div class="price">25,000원 <small>/ 시간</small></div>
+            <p>기본 3시간 75,000원</p>
+          </div>
+
+          <div class="price-card featured">
+            <p class="price-label">WEEKEND</p>
+            <h3>주말</h3>
+            <div class="price">30,000원 <small>/ 시간</small></div>
+            <p>기본 3시간 90,000원</p>
+          </div>
+        </div>
+
+        <div class="price-info">
+          <h3>RESERVATION GUIDE</h3>
+
+          <div class="info-row">
+            <span>기준 인원</span>
+            <strong>10인</strong>
+          </div>
+
+          <div class="info-row">
+            <span>인원 추가</span>
+            <strong>1인당 10,000원</strong>
+          </div>
+
+          <div class="info-row">
+            <span>기본 이용 시간</span>
+            <strong>3시간부터 예약 가능</strong>
+          </div>
+
+          <div class="info-row">
+            <span>추가 이용 시간</span>
+            <strong>1시간당 10,000원</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- 출장뷔페 서비스 -->
+      <section id="catering" class="section catering">
+        <p class="section-label">NOVA CATERING SERVICE</p>
+        <h2>출장뷔페 서비스</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-description">
+          특별한 날, 더욱 특별한 다이닝 경험.<br />
+          NOVA가 준비하는 출장뷔페 서비스입니다.<br />
+          10인 이상부터 이용 가능합니다.
+        </p>
+
+        <div class="catering-container">
+          <div class="catering-card">
+            <p class="catering-label">STANDARD COURSE</p>
+            <h3>3만원 코스</h3>
+
+            <div class="catering-price">30,000원 <small>/ 1인</small></div>
+
+            <p>합리적인 가격으로 즐기는 출장뷔페</p>
+
+            <div class="catering-detail">
+              <p>최소 10인부터 예약 가능</p>
+              <p>메뉴 구성 별도 안내</p>
+            </div>
+
+            <a href="#reservation" class="catering-btn"> 예약 신청 </a>
+          </div>
+
+          <div class="catering-card premium">
+            <p class="catering-label">PREMIUM COURSE</p>
+            <h3>5만원 코스</h3>
+
+            <div class="catering-price">50,000원 <small>/ 1인</small></div>
+
+            <p>더욱 풍성하고 특별한 출장뷔페</p>
+
+            <div class="catering-detail">
+              <p>최소 10인부터 예약 가능</p>
+              <p>메뉴 구성 별도 안내</p>
+            </div>
+
+            <a href="#reservation" class="catering-btn"> 예약 신청 </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 예약 신청 -->
+      <section id="reservation" class="section reservation">
+        <p class="section-label">NOVA RESERVATION</p>
+        <h2>예약 신청</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-description">
+          원하시는 날짜와 이용 정보를 입력해 주세요.<br />
+          예약 가능 여부 확인 후 안내드립니다.
+        </p>
+
+        <form id="reservationForm" class="reservation-form">
+          <div class="form-group">
+            <label for="customerName">예약자명 *</label>
+            <input
+              type="text"
+              id="customerName"
+              placeholder="예약자명을 입력해 주세요"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="customerPhone">연락처 *</label>
+            <input
+              type="tel"
+              id="customerPhone"
+              placeholder="010-0000-0000"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reservationDate">이용 날짜 *</label>
+              <input type="date" id="reservationDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="reservationTime">시작 시간 *</label>
+              <select id="reservationTime" required>
+                <option value="">시간 선택</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="duration">이용 시간 *</label>
+              <select id="duration" required>
+                <option value="">이용 시간 선택</option>
+                <option value="3">3시간</option>
+                <option value="4">4시간</option>
+                <option value="5">5시간</option>
+                <option value="6">6시간</option>
+                <option value="7">7시간</option>
+                <option value="8">8시간</option>
+                <option value="9">9시간</option>
+                <option value="10">10시간</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="guestCount">이용 인원 *</label>
+              <input
+                type="number"
+                id="guestCount"
+                min="1"
+                value="10"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cateringOption"> 추가 옵션 - 출장뷔페 </label>
+
+            <select id="cateringOption">
+              <option value="none">선택 안 함</option>
+              <option value="standard">3만원 코스 (1인 30,000원)</option>
+              <option value="premium">5만원 코스 (1인 50,000원)</option>
+            </select>
+
+            <p class="form-help">
+              출장뷔페는 최소 10인 이상부터 신청 가능합니다.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label for="requestMessage">추가 요청사항</label>
+            <textarea
+              id="requestMessage"
+              rows="4"
+              placeholder="행사 목적이나 요청사항을 입력해 주세요"
+            ></textarea>
+          </div>
+
+          <!-- 자동 금액 계산 -->
+          <div class="reservation-summary">
+            <h3>예약 예상 금액</h3>
+
+            <div class="summary-row">
+              <span>공간 이용료</span>
+              <strong id="spacePrice">0원</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>추가 인원</span>
+              <strong id="extraGuestPrice">0원</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>출장뷔페</span>
+              <strong id="cateringPrice">0원</strong>
+            </div>
+
+            <div class="summary-row summary-total">
+              <span>총 예상 금액</span>
+              <strong id="totalPrice">0원</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="reservation-submit">
+            예약 내용 확인
+          </button>
+
+          <p class="reservation-notice">
+            예약 신청만으로 예약이 확정되지 않습니다.<br />
+            담당자 확인 후 최종 예약이 진행됩니다.
+          </p>
+        </form>
+      </section>
+
+      <!-- 예약 문의 -->
+      <section id="contact" class="section contact">
+        <p class="section-label">CONTACT US</p>
+        <h2>YOUR SPECIAL MOMENT</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-description">
+          당신의 소중한 순간을 NOVA와 함께하세요.<br />
+          프라이빗한 공간에서 특별한 추억을 만들어드립니다.
+        </p>
+
+        <a href="#reservation" class="btn"> RESERVATION </a>
+      </section>
+    </main>
+
+    <footer>
+      <h3>NOVA PRIVATE LOUNGE</h3>
+      <p>EXCLUSIVE PRIVATE SPACE</p>
+      <p>© 2026 NOVA PRIVATE LOUNGE. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const reservationForm = document.getElementById("reservationForm");
+
+      const dateInput = document.getElementById("reservationDate");
+
+      const durationInput = document.getElementById("duration");
+
+      const guestInput = document.getElementById("guestCount");
+
+      const cateringInput = document.getElementById("cateringOption");
+
+      // 지난 날짜 선택 방지
+      const today = new Date();
+
+      const localToday =
+        today.getFullYear() +
+        "-" +
+        String(today.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(today.getDate()).padStart(2, "0");
+
+      dateInput.min = localToday;
+
+      function formatWon(amount) {
+        return amount.toLocaleString("ko-KR") + "원";
+      }
+
+      function calculatePrice() {
+        const date = dateInput.value;
+        const duration = Number(durationInput.value);
+        const guests = Number(guestInput.value);
+        const catering = cateringInput.value;
+
+        let spacePrice = 0;
+        let extraGuestPrice = 0;
+        let cateringPrice = 0;
+
+        if (date && duration >= 3 && guests >= 1) {
+          const day = new Date(date + "T12:00:00").getDay();
+
+          const isWeekend = day === 0 || day === 6;
+
+          // 평일 기본 3시간 75,000원
+          // 주말 기본 3시간 90,000원
+          const basePrice = isWeekend ? 90000 : 75000;
+
+          // 3시간 초과 시 시간당 10,000원
+          spacePrice = basePrice + (duration - 3) * 10000;
+
+          // 기준 인원 10명
+          extraGuestPrice = Math.max(guests - 10, 0) * 10000;
+
+          // 출장뷔페
+          if (catering === "standard" && guests >= 10) {
+            cateringPrice = guests * 30000;
+          }
+
+          if (catering === "premium" && guests >= 10) {
+            cateringPrice = guests * 50000;
+          }
+        }
+
+        document.getElementById("spacePrice").textContent =
+          formatWon(spacePrice);
+
+        document.getElementById("extraGuestPrice").textContent =
+          formatWon(extraGuestPrice);
+
+        document.getElementById("cateringPrice").textContent =
+          formatWon(cateringPrice);
+
+        document.getElementById("totalPrice").textContent = formatWon(
+          spacePrice + extraGuestPrice + cateringPrice,
+        );
+      }
+
+      [dateInput, durationInput, guestInput, cateringInput].forEach((input) => {
+        input.addEventListener("change", calculatePrice);
+        input.addEventListener("input", calculatePrice);
+      });
+
+      // 예약 내용 확인
+      reservationForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const guests = Number(guestInput.value);
+        const catering = cateringInput.value;
+
+        if (catering !== "none" && guests < 10) {
+          alert("출장뷔페는 10인 이상부터 예약 가능합니다.");
+          guestInput.focus();
+          return;
+        }
+
+        const name = document.getElementById("customerName").value;
+
+        const date = dateInput.value;
+
+        const time = document.getElementById("reservationTime").value;
+
+        const duration = durationInput.value;
+
+        const total = document.getElementById("totalPrice").textContent;
+
+        const cateringName =
+          catering === "standard"
+            ? "3만원 코스"
+            : catering === "premium"
+              ? "5만원 코스"
+              : "선택 안 함";
+
+        alert(
+          "예약 내용을 확인해 주세요.\n\n" +
+            "예약자: " +
+            name +
+            "\n" +
+            "이용 날짜: " +
+            date +
+            "\n" +
+            "시작 시간: " +
+            time +
+            "\n" +
+            "이용 시간: " +
+            duration +
+            "시간\n" +
+            "이용 인원: " +
+            guests +
+            "명\n" +
+            "출장뷔페: " +
+            cateringName +
+            "\n" +
+            "예상 금액: " +
+            total +
+            "\n\n" +
+            "※ 실제 예약 접수는 아직 연결되지 않았습니다.",
+        );
+      });
+
+      calculatePrice();
+    </script>
+  </body>
+</html>

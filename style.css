@@ -1,0 +1,445 @@
+/* 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, "Malgun Gothic", sans-serif;
+  background: #111;
+  color: #fff;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 상단 메뉴 */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 15, 15, 0.96);
+  border-bottom: 1px solid #333;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 22px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  color: #d6b67a;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.logo span {
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d6b67a;
+}
+
+/* 메인 배경 사진 */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)),
+    url("images/main.jpg") center / cover no-repeat,
+    #24171b;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.eyebrow {
+  color: #d6b67a;
+  letter-spacing: 5px;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(75px, 16vw, 170px);
+  font-weight: 300;
+  letter-spacing: 15px;
+  line-height: 1.1;
+}
+
+.hero h2 {
+  font-size: clamp(16px, 3vw, 30px);
+  letter-spacing: 9px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.gold-line {
+  width: 65px;
+  height: 2px;
+  background: #d6b67a;
+  margin: 30px auto;
+}
+
+.hero-description {
+  color: #ddd;
+  font-size: 17px;
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 1px solid #d6b67a;
+  color: #d6b67a;
+  letter-spacing: 2px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #d6b67a;
+  color: #111;
+}
+
+/* 공통 섹션 */
+.section {
+  padding: 110px 20px;
+  text-align: center;
+  scroll-margin-top: 100px;
+}
+
+.section-label {
+  color: #d6b67a;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.section h2 {
+  font-size: clamp(25px, 4vw, 38px);
+  font-weight: 400;
+}
+
+.section-description {
+  color: #bbb;
+  max-width: 750px;
+  margin: 25px auto;
+  line-height: 2.2;
+}
+
+/* ABOUT */
+.about {
+  background: #191919;
+}
+
+/* SPACE */
+.space {
+  background: #111;
+}
+
+.space-container {
+  max-width: 1150px;
+  margin: 55px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.space-card {
+  background: #202020;
+  padding: 60px 25px;
+  border: 1px solid #383838;
+  transition: 0.3s;
+}
+
+.space-card:hover {
+  transform: translateY(-8px);
+  border-color: #d6b67a;
+}
+
+.space-icon {
+  font-size: 35px;
+  color: #d6b67a;
+  margin-bottom: 25px;
+}
+
+.space-card h3 {
+  font-size: 17px;
+  color: #d6b67a;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.space-card p {
+  color: #bbb;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* 사진 6장 갤러리 */
+.gallery {
+  background: #151515;
+}
+
+.gallery-grid {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  aspect-ratio: 4 / 3;
+  background: #222;
+  border: 1px solid #333;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 35px 15px 15px;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-align: center;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  pointer-events: none;
+}
+
+/* 가격 안내 */
+.pricing {
+  background: #191919;
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 50px auto;
+}
+
+.price-card {
+  background: #222;
+  border: 1px solid #555;
+  padding: 45px 35px;
+  width: 350px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+}
+
+.price-card.featured {
+  border-color: #d6b67a;
+}
+
+.price-label {
+  color: #d6b67a;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.price-card h3 {
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+.price {
+  font-size: 32px;
+  color: #d6b67a;
+  font-weight: bold;
+  margin: 25px 0;
+}
+
+.price small {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.price-card > p:last-child {
+  color: #ccc;
+}
+
+.price-info {
+  max-width: 725px;
+  margin: 30px auto 0;
+  background: #222;
+  padding: 35px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.price-info h3 {
+  color: #d6b67a;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid #444;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span {
+  color: #bbb;
+}
+
+.info-row strong {
+  color: #fff;
+  text-align: right;
+}
+
+/* 예약 문의 */
+.contact {
+  background: #151515;
+}
+
+.contact-note {
+  color: #888;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+/* 하단 */
+footer {
+  background: #0a0a0a;
+  padding: 45px 20px;
+  text-align: center;
+  border-top: 1px solid #333;
+}
+
+footer h3 {
+  color: #d6b67a;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+footer p {
+  color: #777;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* 태블릿 */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .space-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 18px 12px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    letter-spacing: 5px;
+  }
+
+  .hero h2 {
+    letter-spacing: 3px;
+  }
+
+  .section {
+    padding: 75px 18px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .price-card {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .price-info {
+    padding: 22px;
+  }
+
+  .info-row {
+    font-size: 13px;
+  }
+}
