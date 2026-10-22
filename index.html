@@ -3,198 +3,683 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>대구 파티룸 | NOVA PRIVATE LOUNGE</title>
+    <meta name="theme-color" content="#11100e" />
     <meta
       name="description"
-      content="대구 프라이빗 파티룸 NOVA PRIVATE LOUNGE. 브라이덜샤워, 생일파티, 돌잔치, 가족모임, 단체모임, 케이터링 서비스."
+      content="대구 프라이빗 파티룸 NOVA PRIVATE LOUNGE. 브라이덜샤워, 돌잔치, 생일파티, 가족모임, 케이터링 서비스."
     />
     <meta
       name="keywords"
-      content="대구 파티룸, 대구 브라이덜샤워, 대구 공간대여, 대구 돌잔치, 대구 케이터링"
+      content="대구 파티룸, 대구 브라이덜샤워, 대구 돌잔치, 대구 케이터링, 대구 공간대여"
     />
-
+    <title>NOVA PRIVATE LOUNGE | 대구 프라이빗 파티룸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="header">
-      <a href="#home" class="logo">NOVA <span>PRIVATE LOUNGE</span></a>
-      <nav>
+      <a href="#home" class="logo">
+        NOVA
+        <small>PRIVATE LOUNGE</small>
+      </a>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+      <nav class="nav" id="nav">
         <a href="#about">ABOUT</a>
         <a href="#space">SPACE</a>
         <a href="#pricing">PRICING</a>
         <a href="#catering">CATERING</a>
-        <a href="#reservation">RESERVATION</a>
+        <a href="#dolsang">DOLSANG</a>
+        <a href="#reservation" class="nav-reserve">RESERVATION</a>
       </nav>
     </header>
 
     <main>
-      <section id="home" class="hero">
+      <!-- 메인 -->
+      <section class="hero" id="home">
+        <div class="hero-bg"></div>
         <div class="hero-content">
-          <p class="eyebrow">YOUR PRIVATE MOMENT</p>
-          <h1>NOVA<br />PRIVATE LOUNGE</h1>
-          <p>당신의 특별한 순간을 위한 프라이빗 공간</p>
-          <a href="#reservation" class="btn">RESERVE NOW</a>
-        </div>
-      </section>
-
-      <section id="about" class="section">
-        <p class="eyebrow">ABOUT NOVA</p>
-        <h2>특별한 날, 특별한 공간</h2>
-        <p class="description">
-          브라이덜샤워부터 생일파티, 돌잔치, 가족모임까지.<br />
-          NOVA PRIVATE LOUNGE에서 소중한 사람들과 특별한 시간을 만들어 보세요.
-        </p>
-      </section>
-
-      <section id="space" class="section section-dark">
-        <p class="eyebrow">OUR SPACE</p>
-        <h2>공간 안내</h2>
-        <div class="space-grid">
-          <div class="space-card">
-            <div class="photo-placeholder">LOUNGE</div>
-            <h3>PRIVATE LOUNGE</h3>
-            <p>편안하고 고급스러운 라운지</p>
-          </div>
-          <div class="space-card">
-            <div class="photo-placeholder">PHOTO ZONE</div>
-            <h3>PHOTO ZONE</h3>
-            <p>특별한 순간을 기록하는 공간</p>
-          </div>
-          <div class="space-card">
-            <div class="photo-placeholder">DINING</div>
-            <h3>DINING SPACE</h3>
-            <p>함께 즐기는 프라이빗 다이닝</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing" class="section">
-        <p class="eyebrow">PRICING</p>
-        <h2>이용 요금</h2>
-        <div class="price-grid">
-          <div class="price-card">
-            <h3>WEEKDAY</h3>
-            <strong>20,000원 <small>/ 시간</small></strong>
-            <p>평일 이용</p>
-          </div>
-          <div class="price-card">
-            <h3>WEEKEND</h3>
-            <strong>30,000원 <small>/ 시간</small></strong>
-            <p>주말 이용</p>
-          </div>
-        </div>
-        <p class="notice">
-          기본 5인 · 최소 3시간 · 추가 인원 1인당 10,000원 · 보증금 50,000원
-          별도
-        </p>
-      </section>
-
-      <section id="catering" class="section section-dark">
-        <p class="eyebrow">CATERING SERVICE</p>
-        <h2>케이터링 서비스</h2>
-        <p class="description">
-          특별한 모임에 어울리는 음식 서비스를 제공합니다.
-        </p>
-        <div class="price-grid">
-          <div class="price-card">
-            <h3>STANDARD</h3>
-            <strong>30,000원 <small>/ 1인</small></strong>
-            <p>최소 10인부터</p>
-          </div>
-          <div class="price-card">
-            <h3>PREMIUM</h3>
-            <strong>50,000원 <small>/ 1인</small></strong>
-            <p>최소 10인부터</p>
-          </div>
-        </div>
-        <p class="notice">메뉴 구성과 서비스 범위는 별도 협의</p>
-      </section>
-
-      <section id="reservation" class="section">
-        <p class="eyebrow">RESERVATION</p>
-        <h2>예약 금액 계산</h2>
-        <div class="reservation-box">
-          <label for="date">이용 날짜</label>
-          <input type="date" id="date" />
-
-          <label for="hours">이용 시간</label>
-          <select id="hours">
-            <option value="3">3시간</option>
-            <option value="4">4시간</option>
-            <option value="5">5시간</option>
-            <option value="6">6시간</option>
-            <option value="7">7시간</option>
-            <option value="8">8시간</option>
-          </select>
-
-          <label for="people">이용 인원</label>
-          <input type="number" id="people" min="1" value="5" />
-
-          <div class="total">
-            <span>예상 결제 금액 (보증금 포함)</span>
-            <strong id="total">110,000원</strong>
-          </div>
-          <p class="notice">
-            예상 금액이며 실제 예약 및 결제는 별도 확인이 필요합니다.
+          <p class="eyebrow">AN EXCLUSIVE PRIVATE EXPERIENCE</p>
+          <h1>NOVA<br /><span>PRIVATE LOUNGE</span></h1>
+          <div class="gold-line"></div>
+          <p class="hero-description">
+            오직 당신을 위한 특별한 공간<br />
+            소중한 순간을 더욱 빛나게
           </p>
-          <button type="button" class="btn" id="inquiry">
-            예약 문의 내용 복사
-          </button>
+          <a href="#reservation" class="btn btn-gold"
+            >RESERVE YOUR MOMENT <span>↗</span></a
+          >
+        </div>
+        <span class="hero-bottom">SCROLL TO EXPLORE ↓</span>
+      </section>
+
+      <!-- 소개 -->
+      <section class="section about" id="about">
+        <div class="container about-grid">
+          <div>
+            <p class="eyebrow">THE NOVA EXPERIENCE</p>
+            <h2 class="section-title">
+              Every Moment<br /><em>Deserves to Shine.</em>
+            </h2>
+            <div class="gold-line left"></div>
+          </div>
+          <div class="about-text">
+            <h3>특별한 날을 위한 프라이빗 라운지</h3>
+            <p>
+              NOVA PRIVATE LOUNGE는 소중한 사람들과 함께하는 모든 순간을 더욱
+              특별하게 만드는 공간입니다.
+            </p>
+            <p>
+              브라이덜샤워, 생일파티, 돌잔치, 가족모임부터 프라이빗 다이닝과
+              케이터링까지. 원하는 방식으로 당신만의 하루를 완성하세요.
+            </p>
+            <div class="feature-list">
+              <span>✦ PRIVATE SPACE</span>
+              <span>✦ SPECIAL EVENTS</span>
+              <span>✦ CATERING SERVICE</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 공간 -->
+      <section class="section section-alt" id="space">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">DISCOVER OUR SPACE</p>
+            <h2 class="section-title">Our <em>Space</em></h2>
+            <p class="section-desc">머무는 순간이 특별해지는 공간</p>
+          </div>
+
+          <div class="space-grid">
+            <article class="space-card space-large">
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85"
+                alt="고급스러운 라운지 인테리어 참고 이미지"
+                loading="lazy"
+              />
+              <div class="space-overlay">
+                <span>01 / PRIVATE SPACE</span>
+                <h3>PRIVATE LOUNGE</h3>
+                <p>여유로운 휴식을 위한 프라이빗 공간</p>
+              </div>
+            </article>
+
+            <article class="space-card">
+              <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+                alt="다이닝 공간 참고 이미지"
+                loading="lazy"
+              />
+              <div class="space-overlay">
+                <span>02 / DINING</span>
+                <h3>DINING SPACE</h3>
+                <p>함께 즐기는 특별한 다이닝</p>
+              </div>
+            </article>
+
+            <article class="space-card">
+              <img
+                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85"
+                alt="파티 및 포토존 참고 이미지"
+                loading="lazy"
+              />
+              <div class="space-overlay">
+                <span>03 / CELEBRATION</span>
+                <h3>PHOTO & PARTY</h3>
+                <p>아름다운 순간을 기록하는 공간</p>
+              </div>
+            </article>
+          </div>
+          <p class="image-note">
+            ※ 공간 이미지는 연출 참고용이며 실제 NOVA 공간과 다를 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 요금 -->
+      <section class="section" id="pricing">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">SPACE RENTAL</p>
+            <h2 class="section-title">Rental <em>Pricing</em></h2>
+            <p class="section-desc">합리적인 가격으로 즐기는 프라이빗 라운지</p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <span class="plan-label">MON — FRI</span>
+              <h3>WEEKDAY</h3>
+              <div class="price">25,000<small>원 / 시간</small></div>
+              <div class="price-rule"></div>
+              <p>평일 공간 대여</p>
+              <p>최소 3시간 이용</p>
+              <a href="#reservation" class="text-link">예약 금액 확인 ↗</a>
+            </article>
+            <article class="pricing-card featured">
+              <span class="plan-label">SAT — SUN</span>
+              <h3>WEEKEND</h3>
+              <div class="price">30,000<small>원 / 시간</small></div>
+              <div class="price-rule"></div>
+              <p>주말 공간 대여</p>
+              <p>최소 3시간 이용</p>
+              <a href="#reservation" class="text-link">예약 금액 확인 ↗</a>
+            </article>
+          </div>
+
+          <div class="pricing-info">
+            <p>기본 인원 9인까지 · 10인부터 1인당 10,000원 추가</p>
+            <p>보증금 50,000원 별도 · 공휴일 요금은 별도 확인</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 케이터링 -->
+      <section class="section section-alt" id="catering">
+        <div class="container catering-layout">
+          <div class="catering-image">
+            <img
+              src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=85"
+              alt="케이터링 뷔페 서비스 참고 이미지"
+              loading="lazy"
+            />
+          </div>
+          <div class="catering-content">
+            <p class="eyebrow">NOVA CATERING</p>
+            <h2 class="section-title">
+              Elevate Your<br /><em>Dining Experience.</em>
+            </h2>
+            <p class="section-desc left-text">
+              소중한 사람들과 함께하는 특별한 식사.<br />
+              NOVA의 케이터링 서비스로 더욱 풍성하게 완성하세요.
+            </p>
+            <div class="catering-plan">
+              <div><strong>STANDARD</strong><small>1인 기준</small></div>
+              <strong class="gold">30,000원</strong>
+            </div>
+            <div class="catering-plan">
+              <div><strong>PREMIUM</strong><small>1인 기준</small></div>
+              <strong class="gold">50,000원</strong>
+            </div>
+            <p class="small-note">
+              케이터링 최소 10인부터 · 메뉴 및 제공 범위 별도 협의
+            </p>
+            <a href="#reservation" class="btn btn-outline"
+              >케이터링 예약 문의 ↗</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 돌상 -->
+      <section class="section" id="dolsang">
+        <div class="container dolsang-layout">
+          <div class="dolsang-content">
+            <p class="eyebrow">FIRST BIRTHDAY CELEBRATION</p>
+            <h2 class="section-title">
+              A Beautiful<br /><em>First Birthday.</em>
+            </h2>
+            <h3>소중한 첫 생일, 특별한 돌상</h3>
+            <p>
+              우리 아이의 첫 번째 생일을 위한 특별한 순간. NOVA에서 가족과
+              함께하는 따뜻한 돌잔치를 준비해 보세요.
+            </p>
+            <p>
+              돌상 세팅은 행사 구성과 요청 사항에 따라 별도 상담 후 견적을
+              안내드립니다.
+            </p>
+            <div class="dolsang-tag">DOLSANG SETTING · CUSTOM QUOTATION</div>
+            <a href="#reservation" class="btn btn-outline">돌상 세팅 문의 ↗</a>
+          </div>
+          <div class="dolsang-image">
+            <img
+              src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1100&q=85"
+              alt="기념행사 테이블 연출 참고 이미지"
+              loading="lazy"
+            />
+            <p class="image-note">
+              행사 연출 참고 이미지 · 실제 돌상 구성은 별도 협의
+            </p>
+            <a
+              class="reference-link"
+              href="https://www.pexels.com/photo/table-setting-for-korean-first-birthday-23355702/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              한국식 돌상 참고 사진 보기 ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 예약 -->
+      <section class="section section-alt" id="reservation">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">MAKE A RESERVATION</p>
+            <h2 class="section-title">Your <em>Reservation</em></h2>
+            <p class="section-desc">
+              이용 정보를 선택하면 예상 금액이 자동 계산됩니다.
+            </p>
+          </div>
+
+          <div class="reservation-layout">
+            <div class="reservation-form">
+              <h3>01. 이용 정보</h3>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="date">이용 날짜</label>
+                  <input type="date" id="date" required />
+                </div>
+                <div class="field">
+                  <label for="startTime">이용 시작 시간</label>
+                  <input type="time" id="startTime" value="15:00" required />
+                </div>
+                <div class="field">
+                  <label for="hours">이용 시간</label>
+                  <select id="hours">
+                    <option value="3">3시간</option>
+                    <option value="4">4시간</option>
+                    <option value="5">5시간</option>
+                    <option value="6">6시간</option>
+                    <option value="7">7시간</option>
+                    <option value="8">8시간</option>
+                    <option value="9">9시간</option>
+                    <option value="10">10시간</option>
+                    <option value="11">11시간</option>
+                    <option value="12">12시간</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="people">이용 인원</label>
+                  <input
+                    type="number"
+                    id="people"
+                    min="1"
+                    max="200"
+                    value="9"
+                  />
+                </div>
+              </div>
+
+              <h3 class="form-subtitle">02. 추가 옵션</h3>
+              <div class="field">
+                <label for="catering">케이터링 서비스</label>
+                <select id="catering">
+                  <option value="0">선택 안 함</option>
+                  <option value="30000">스탠다드 · 30,000원 / 인</option>
+                  <option value="50000">프리미엄 · 50,000원 / 인</option>
+                </select>
+              </div>
+
+              <div class="field hidden" id="cateringPeopleBox">
+                <label for="cateringPeople">케이터링 인원 (최소 10인)</label>
+                <input
+                  type="number"
+                  id="cateringPeople"
+                  min="10"
+                  max="200"
+                  value="10"
+                />
+              </div>
+
+              <div class="field">
+                <label for="dolsangOption">돌상 세팅</label>
+                <select id="dolsangOption">
+                  <option value="none">선택 안 함</option>
+                  <option value="request">돌상 세팅 추가 · 별도 견적</option>
+                </select>
+                <p class="field-hint" id="dolsangNotice">
+                  돌상 세팅은 요청 시 별도 견적으로 안내됩니다.
+                </p>
+              </div>
+
+              <div class="field">
+                <label for="requests">기타 요청 사항 (선택)</label>
+                <textarea
+                  id="requests"
+                  rows="3"
+                  maxlength="500"
+                  placeholder="행사 종류, 돌상 요청, 케이터링 구성 등"
+                ></textarea>
+              </div>
+            </div>
+
+            <aside class="summary-card">
+              <p class="eyebrow">RESERVATION SUMMARY</p>
+              <h3>예상 이용 금액</h3>
+
+              <div class="summary-detail">
+                <div>
+                  <span>이용 날짜</span
+                  ><strong id="summaryDate">날짜 선택 전</strong>
+                </div>
+                <div>
+                  <span>이용 시간</span
+                  ><strong id="summaryTime">15:00 ~ 18:00</strong>
+                </div>
+                <div>
+                  <span>이용 인원</span><strong id="summaryPeople">9명</strong>
+                </div>
+              </div>
+
+              <div class="summary-prices">
+                <div>
+                  <span>공간 이용료</span
+                  ><strong id="spacePrice">75,000원</strong>
+                </div>
+                <div>
+                  <span>추가 인원 요금</span
+                  ><strong id="extraPrice">0원</strong>
+                </div>
+                <div>
+                  <span>케이터링</span><strong id="cateringPrice">0원</strong>
+                </div>
+                <div>
+                  <span>돌상 세팅</span
+                  ><strong id="dolsangPrice">미선택</strong>
+                </div>
+                <div><span>보증금</span><strong>50,000원</strong></div>
+              </div>
+
+              <div class="summary-total">
+                <span>예상 결제 금액</span>
+                <strong id="total">125,000원</strong>
+              </div>
+
+              <p class="summary-notice" id="quoteNotice"></p>
+              <p class="summary-notice">
+                실제 예약 확정 및 결제는 별도 안내됩니다. 공휴일 요금과 돌상
+                견적은 계산에 포함되지 않을 수 있습니다.
+              </p>
+
+              <button
+                type="button"
+                class="btn btn-gold full-width"
+                id="inquiry"
+              >
+                예약 문의 내용 복사 ↗
+              </button>
+              <p class="copy-help">
+                복사한 내용을 예약 상담 채널에 전달해 주세요.
+              </p>
+            </aside>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <h2>NOVA PRIVATE LOUNGE</h2>
-      <p>YOUR PRIVATE MOMENT</p>
-      <small>© 2026 NOVA PRIVATE LOUNGE. ALL RIGHTS RESERVED.</small>
+    <footer class="footer" id="contact">
+      <div class="container footer-layout">
+        <div>
+          <div class="footer-logo">NOVA</div>
+          <p>PRIVATE LOUNGE</p>
+          <p class="footer-description">
+            소중한 순간을 더욱 특별하게.<br />
+            당신만의 프라이빗 라운지.
+          </p>
+        </div>
+        <div>
+          <h4>EXPLORE</h4>
+          <a href="#about">ABOUT</a>
+          <a href="#space">SPACE</a>
+          <a href="#pricing">PRICING</a>
+          <a href="#reservation">RESERVATION</a>
+        </div>
+        <div>
+          <h4>CONTACT</h4>
+          <p>DAEGU, SOUTH KOREA</p>
+          <p>예약 및 이용 문의</p>
+          <p>상담 채널 정보는 추후 업데이트 예정</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 NOVA PRIVATE LOUNGE. ALL RIGHTS RESERVED.
+      </div>
     </footer>
 
     <script>
-      const dateInput = document.getElementById("date");
-      const hoursInput = document.getElementById("hours");
-      const peopleInput = document.getElementById("people");
-      const totalElement = document.getElementById("total");
+      "use strict";
 
-      dateInput.min = new Date(
-        Date.now() - new Date().getTimezoneOffset() * 60000,
-      )
-        .toISOString()
-        .slice(0, 10);
+      const $ = (id) => document.getElementById(id);
+      const money = (amount) => amount.toLocaleString("ko-KR") + "원";
+
+      const dateInput = $("date");
+      const startTimeInput = $("startTime");
+      const hoursInput = $("hours");
+      const peopleInput = $("people");
+      const cateringInput = $("catering");
+      const cateringPeopleInput = $("cateringPeople");
+      const dolsangInput = $("dolsangOption");
+
+      // 로컬 날짜 기준으로 오늘 이전 날짜 선택 제한
+      function localDateString(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      dateInput.min = localDateString(new Date());
+
+      // 시작 시간 + 이용 시간으로 종료 시간 계산
+      function getEndTime(start, duration) {
+        if (!start) return "";
+        const parts = start.split(":").map(Number);
+        if (parts.length !== 2 || parts.some(Number.isNaN)) return "";
+
+        const minutes = parts[0] * 60 + parts[1] + duration * 60;
+        const daysLater = Math.floor(minutes / 1440);
+        const time = minutes % 1440;
+        const h = String(Math.floor(time / 60)).padStart(2, "0");
+        const m = String(time % 60).padStart(2, "0");
+
+        return `${h}:${m}${daysLater ? ` (다음 날 +${daysLater}일)` : ""}`;
+      }
 
       function calculate() {
         const date = dateInput.value;
+        const startTime = startTimeInput.value;
         const hours = Number(hoursInput.value);
-        const people = Math.max(1, Number(peopleInput.value) || 1);
-        const day = date ? new Date(date + "T12:00:00").getDay() : 1;
-        const weekend = day === 0 || day === 6;
-        const hourly = weekend ? 30000 : 20000;
-        const extraPeople = Math.max(0, people - 5) * 10000;
-        const total = hourly * hours + extraPeople + 50000;
 
-        totalElement.textContent = total.toLocaleString("ko-KR") + "원";
-        return { date, hours, people, total };
+        const rawPeople = Number(peopleInput.value);
+        const people =
+          Number.isFinite(rawPeople) && rawPeople >= 1
+            ? Math.floor(rawPeople)
+            : 1;
+
+        const day = date ? new Date(date + "T12:00:00").getDay() : null;
+        const weekend = day === 0 || day === 6;
+
+        const hourlyRate = weekend ? 30000 : 25000;
+        const spacePrice = hourlyRate * hours;
+
+        // 9인까지 기본, 10인부터 1만원씩
+        const extraCount = Math.max(0, people - 9);
+        const extraPrice = extraCount * 10000;
+
+        const cateringRate = Number(cateringInput.value);
+        const hasCatering = cateringRate > 0;
+        $("cateringPeopleBox").classList.toggle("hidden", !hasCatering);
+
+        const rawCateringPeople = Number(cateringPeopleInput.value);
+        const cateringPeople = hasCatering
+          ? Math.max(10, Math.floor(rawCateringPeople) || 10)
+          : 0;
+
+        const cateringPrice = hasCatering ? cateringRate * cateringPeople : 0;
+
+        const hasDolsang = dolsangInput.value === "request";
+        const deposit = 50000;
+
+        // 돌상은 견적 미정이므로 합산하지 않음
+        const total = spacePrice + extraPrice + cateringPrice + deposit;
+        const endTime = getEndTime(startTime, hours);
+
+        $("summaryDate").textContent = date || "날짜 선택 전";
+        $("summaryTime").textContent = startTime
+          ? `${startTime} ~ ${endTime}`
+          : "시간 선택 전";
+        $("summaryPeople").textContent = people + "명";
+        $("spacePrice").textContent = money(spacePrice);
+        $("extraPrice").textContent = money(extraPrice);
+        $("cateringPrice").textContent = money(cateringPrice);
+        $("dolsangPrice").textContent = hasDolsang ? "별도 견적" : "미선택";
+        $("total").textContent = money(total);
+
+        const notices = [];
+        if (!date) notices.push("날짜를 선택하면 평일/주말 요금이 확정됩니다.");
+        if (hasDolsang)
+          notices.push("돌상 세팅 비용은 현재 합계에 포함되지 않았습니다.");
+        if (hasCatering && rawCateringPeople < 10) {
+          notices.push("케이터링은 최소 10인 기준으로 계산됩니다.");
+        }
+        if (date && !weekend) {
+          notices.push("선택일이 공휴일인 경우 요금 확인이 필요합니다.");
+        }
+        $("quoteNotice").textContent = notices.join(" ");
+
+        return {
+          date,
+          startTime,
+          endTime,
+          hours,
+          people,
+          hourlyRate,
+          spacePrice,
+          extraCount,
+          extraPrice,
+          cateringRate,
+          cateringPeople,
+          cateringPrice,
+          hasDolsang,
+          deposit,
+          total,
+        };
       }
 
-      [dateInput, hoursInput, peopleInput].forEach((el) => {
-        el.addEventListener("input", calculate);
+      [
+        dateInput,
+        startTimeInput,
+        hoursInput,
+        peopleInput,
+        cateringInput,
+        cateringPeopleInput,
+        dolsangInput,
+      ].forEach((element) => {
+        element.addEventListener("input", calculate);
+        element.addEventListener("change", calculate);
       });
 
-      document.getElementById("inquiry").addEventListener("click", async () => {
+      $("inquiry").addEventListener("click", async () => {
         const info = calculate();
+
         if (!info.date) {
           alert("이용 날짜를 선택해 주세요.");
+          dateInput.focus();
+          return;
+        }
+        if (!info.startTime) {
+          alert("이용 시작 시간을 선택해 주세요.");
+          startTimeInput.focus();
+          return;
+        }
+        if (
+          !Number.isInteger(Number(peopleInput.value)) ||
+          Number(peopleInput.value) < 1
+        ) {
+          alert("올바른 이용 인원을 입력해 주세요.");
+          peopleInput.focus();
+          return;
+        }
+        if (
+          info.cateringRate > 0 &&
+          (!Number.isInteger(Number(cateringPeopleInput.value)) ||
+            Number(cateringPeopleInput.value) < 10)
+        ) {
+          alert("케이터링은 최소 10인부터 신청 가능합니다.");
+          cateringPeopleInput.focus();
           return;
         }
 
-        const message = `NOVA 예약 문의\n날짜: ${info.date}\n시간: ${info.hours}시간\n인원: ${info.people}명\n예상 금액: ${info.total.toLocaleString("ko-KR")}원`;
+        const cateringText =
+          info.cateringRate > 0
+            ? `${money(info.cateringRate)} × ${info.cateringPeople}명 = ${money(info.cateringPrice)}`
+            : "미이용";
+
+        const message = [
+          "[NOVA PRIVATE LOUNGE 예약 문의]",
+          "",
+          `이용 날짜: ${info.date}`,
+          `이용 시작: ${info.startTime}`,
+          `이용 종료: ${info.endTime}`,
+          `이용 시간: ${info.hours}시간`,
+          `이용 인원: ${info.people}명`,
+          "",
+          `[공간 이용료] ${money(info.spacePrice)}`,
+          `[추가 인원] ${info.extraCount}명 / ${money(info.extraPrice)}`,
+          `[케이터링] ${cateringText}`,
+          `[돌상 세팅] ${info.hasDolsang ? "추가 요청 (별도 견적)" : "미이용"}`,
+          `[보증금] ${money(info.deposit)}`,
+          "",
+          `예상 결제 금액: ${money(info.total)}`,
+          info.hasDolsang ? "※ 돌상 세팅 비용 별도" : "",
+          "※ 공휴일 및 실제 예약 가능 여부 별도 확인",
+          "",
+          `기타 요청: ${$("requests").value.trim() || "없음"}`,
+        ]
+          .filter((line) => line !== null)
+          .join("\n");
+
         try {
           await navigator.clipboard.writeText(message);
-          alert("예약 문의 내용이 복사되었습니다.");
-        } catch {
-          alert("복사에 실패했습니다. 브라우저 권한을 확인해 주세요.");
+          alert(
+            "예약 문의 내용이 복사되었습니다.\n상담 채널에 붙여 넣어 주세요.",
+          );
+        } catch (error) {
+          const textarea = document.createElement("textarea");
+          textarea.value = message;
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+          const copied = document.execCommand("copy");
+          textarea.remove();
+          alert(
+            copied
+              ? "예약 문의 내용이 복사되었습니다."
+              : "자동 복사가 불가능합니다. HTTPS 환경에서 다시 시도해 주세요.",
+          );
         }
+      });
+
+      // 모바일 메뉴
+      const menuToggle = $("menuToggle");
+      const nav = $("nav");
+
+      menuToggle.addEventListener("click", () => {
+        const opened = nav.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(opened));
+        menuToggle.textContent = opened ? "✕" : "☰";
+      });
+
+      nav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.textContent = "☰";
+        });
       });
 
       calculate();
