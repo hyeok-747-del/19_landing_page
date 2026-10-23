@@ -1,1 +1,90 @@
-const header=document.querySelector('#header');const nav=document.querySelector('#nav');const toggle=document.querySelector('.menu-toggle');const updateHeader=()=>header.classList.toggle('scrolled',scrollY>30);window.addEventListener('scroll',updateHeader,{passive:true});updateHeader();toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'✕':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const money=n=>n.toLocaleString('ko-KR')+'원';function calc(){const rate=Number(document.querySelector('#day').value);const hours=Math.max(3,Number(document.querySelector('#hours').value)||3);const people=Math.max(1,Number(document.querySelector('#people').value)||1);const deposit=Number(document.querySelector('#deposit').value);const fee=rate*hours+Math.max(0,people-5)*10000;document.querySelector('#total').textContent=money(fee+deposit);document.querySelector('#breakdown').textContent=`이용료 ${money(fee)} + 보증금 ${money(deposit)}`;}if(document.getElementById('day')){['day','hours','people','deposit'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();}document.querySelector('#booking-form')?.addEventListener('submit',async e=>{e.preventDefault();const msg=`[NOVA 예약 문의]\n지점: ${document.querySelector('#branch').value}\n날짜: ${document.querySelector('#date').value}\n시간: ${document.querySelector('#time').value}\n인원: ${document.querySelector('#count').value}명\n요청사항: ${document.querySelector('#notes').value||'없음'}`;const status=document.querySelector('#copy-status');try{await navigator.clipboard.writeText(msg);status.textContent='문의 내용이 복사되었습니다. 원하는 연락 채널에 붙여넣어 주세요.'}catch{status.textContent='복사가 차단되었습니다. HTTPS 주소에서 다시 시도해 주세요.'}});
+/* ==========================================
+   NOVA PRIVATE LOUNGE
+   MAIN JAVASCRIPT
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* ======================================
+     1. 모바일 메뉴
+  ====================================== */
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+
+  if (menuToggle && nav) {
+    menuToggle.setAttribute("aria-expanded", "false");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+
+        menuToggle.textContent = "☰";
+
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* ======================================
+     2. 스크롤 시 헤더 디자인 변경
+  ====================================== */
+
+  const header = document.querySelector(".header");
+
+  function updateHeader() {
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+
+  window.addEventListener("scroll", updateHeader, {
+    passive: true,
+  });
+
+  updateHeader();
+
+  /* ======================================
+     3. 스크롤 애니메이션
+  ====================================== */
+
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -30px 0px",
+      },
+    );
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
+  }
+
+});

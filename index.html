@@ -1,2 +1,675 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><meta name="description" content="NOVA PRIVATE LOUNGE - 홈"><title>홈 | NOVA PRIVATE LOUNGE</title><link rel="stylesheet" href="style.css"></head><body><header class="header" id="header"><a aria-label="NOVA 홈" class="brand" href="index.html">NOVA<span>PRIVATE LOUNGE</span></a><button aria-expanded="false" aria-label="메뉴 열기" class="menu-toggle">☰</button><nav class="nav" id="nav"><a href="index.html">홈</a><a href="locations.html">지점안내</a><a href="gallery.html">갤러리</a><a href="contact.html">문의</a><a href="pricing.html">가격안내</a><a class="nav-book" href="booking.html">예약</a></nav></header><main><section class="hero" id="home"><video autoplay="" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1800&amp;q=85" preload="metadata"><source src="assets/nova-hero.mp4" type="video/mp4"/></video><div class="hero-shade"></div><div class="hero-inner reveal"><p class="eyebrow">EXCLUSIVE PRIVATE EXPERIENCE</p><h1>YOUR MOMENT.<br/><em>OUR SPACE.</em></h1><p class="hero-sub">소중한 순간이 특별한 기억이 되는 곳</p><a class="outline-btn" href="locations.html">DISCOVER NOVA <span>↗</span></a></div><a class="scroll-hint" href="#intro">SCROLL TO EXPLORE <span>↓</span></a></section>
-<section class="intro section" id="intro"><p class="eyebrow reveal">WELCOME TO NOVA</p><h2 class="reveal">일상을 벗어난 공간,<br/><em>특별함을 경험하다.</em></h2><p class="reveal">브라이덜샤워부터 생일, 가족모임, 프라이빗 파티까지.<br/>NOVA에서 당신만의 순간을 완성하세요.</p></section></main><footer><div class="footer-logo">NOVA <span>PRIVATE LOUNGE</span></div><p>MAKE EVERY MOMENT EXTRAORDINARY.</p><small>© 2026 NOVA. All rights reserved.</small></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="대구 프라이빗 파티룸 NOVA PRIVATE LOUNGE. 브라이덜샤워, 생일파티, 돌잔치, 가족모임, 케이터링, 프라이빗 행사 공간."
+    />
+
+    <meta
+      name="keywords"
+      content="대구 파티룸, 노바 프라이빗 라운지, 대구 브라이덜샤워, 대구 돌잔치, 대구 공간대여, 대구 케이터링"
+    />
+
+    <title>NOVA PRIVATE LOUNGE | 프라이빗 파티 & 라운지</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* 메인 페이지 전용 스타일 */
+
+      .nova-hero {
+        position: relative;
+        height: 100svh;
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #090909;
+        text-align: center;
+      }
+
+      .nova-hero .hero-media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .nova-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.25) 40%,
+          rgba(0, 0, 0, 0.85)
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 25px;
+        animation: heroFade 1.5s ease both;
+      }
+
+      .hero-content .eyebrow {
+        color: #d6b47d;
+        letter-spacing: 6px;
+        font-size: 13px;
+        margin-bottom: 25px;
+      }
+
+      .hero-content h1 {
+        color: white;
+        font-size: clamp(48px, 8vw, 115px);
+        letter-spacing: 8px;
+        font-weight: 400;
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      .hero-subtitle {
+        color: #e0d5c5;
+        letter-spacing: 7px;
+        font-size: clamp(12px, 1.4vw, 18px);
+        margin-top: 18px;
+      }
+
+      .hero-description {
+        color: #d1cbc3;
+        line-height: 2;
+        margin: 40px 0;
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        color: #ddd;
+        font-size: 11px;
+        letter-spacing: 3px;
+        animation: scrollMove 2s infinite;
+      }
+
+      @keyframes heroFade {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scrollMove {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: translate(-50%, 0);
+        }
+        50% {
+          opacity: 1;
+          transform: translate(-50%, 12px);
+        }
+      }
+
+      .intro-section {
+        padding: 150px 24px;
+        text-align: center;
+        background: #0d0d0f;
+      }
+
+      .intro-section h2 {
+        font-size: clamp(30px, 4.5vw, 58px);
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 25px 0;
+      }
+
+      .intro-section h2 em {
+        color: #c9a66b;
+        font-style: normal;
+      }
+
+      .intro-section p {
+        color: #aaa5a0;
+        line-height: 2.1;
+        font-size: 15px;
+      }
+
+      .feature-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 650px;
+        background: #151416;
+      }
+
+      .feature-image {
+        position: relative;
+        min-height: 520px;
+        overflow: hidden;
+        background: #222;
+      }
+
+      .feature-image img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+        transition: transform 1.2s ease;
+      }
+
+      .feature-split:hover .feature-image img {
+        transform: scale(1.04);
+      }
+
+      .feature-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 90px 12%;
+      }
+
+      .feature-content h2 {
+        font-size: clamp(32px, 4vw, 55px);
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 25px 0;
+      }
+
+      .feature-content p {
+        color: #b7b1a9;
+        line-height: 2;
+        margin-bottom: 35px;
+      }
+
+      .feature-split.reverse .feature-image {
+        order: 2;
+      }
+
+      .feature-split.reverse .feature-content {
+        order: 1;
+      }
+
+      .service-grid {
+        max-width: 1300px;
+        margin: 65px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .service-card {
+        position: relative;
+        height: 440px;
+        overflow: hidden;
+        background: #1b1b1d;
+      }
+
+      .service-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+      }
+
+      .service-card:hover img {
+        transform: scale(1.08);
+      }
+
+      .service-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent 30%, rgba(0, 0, 0, 0.9));
+      }
+
+      .service-card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        z-index: 2;
+      }
+
+      .service-card-content span {
+        color: #d6b47d;
+        font-size: 11px;
+        letter-spacing: 3px;
+      }
+
+      .service-card-content h3 {
+        font-size: 25px;
+        font-weight: 500;
+        margin: 12px 0;
+      }
+
+      .service-card-content p {
+        color: #d0c9c0;
+        font-size: 13px;
+        line-height: 1.8;
+      }
+
+      .stats-section {
+        padding: 110px 25px;
+        background: #171513;
+        text-align: center;
+      }
+
+      .stats-grid {
+        max-width: 1100px;
+        margin: 55px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .stat-item strong {
+        display: block;
+        color: #d2af76;
+        font-size: clamp(30px, 4vw, 55px);
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+
+      .stat-item span {
+        color: #bbb5ae;
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      .main-cta {
+        position: relative;
+        padding: 145px 25px;
+        text-align: center;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.86)),
+          url("assets/dining.jpg") center/cover;
+      }
+
+      .main-cta h2 {
+        font-size: clamp(34px, 5vw, 65px);
+        font-weight: 400;
+        margin: 25px 0;
+      }
+
+      .main-cta p {
+        color: #bdb5aa;
+        margin-bottom: 40px;
+        line-height: 2;
+      }
+
+      @media (max-width: 900px) {
+        .feature-split {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-image {
+          min-height: 420px;
+        }
+
+        .feature-split.reverse .feature-image,
+        .feature-split.reverse .feature-content {
+          order: initial;
+        }
+
+        .feature-content {
+          padding: 65px 8%;
+        }
+
+        .service-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .nova-hero {
+          min-height: 650px;
+        }
+
+        .hero-content h1 {
+          letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+          letter-spacing: 4px;
+        }
+
+        .intro-section {
+          padding: 95px 20px;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          height: 370px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 45px;
+        }
+
+        .main-cta {
+          padding: 100px 20px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="experience.css" />
+  </head>
+
+  <body class="nova-refresh home">
+    <!-- 상단 메뉴 -->
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    <header class="header">
+      <a href="index.html" class="logo">
+        NOVA
+        <span>PRIVATE LOUNGE</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
+
+      <nav class="nav">
+        <a href="index.html" class="active">홈</a>
+        <a href="locations.html">지점안내</a>
+        <a href="gallery.html">갤러리</a>
+        <a href="party.html">프라이빗 파티</a>
+        <a href="doljanchi.html">돌잔치</a>
+        <a href="seminar.html">기업 세미나</a>
+        <a href="contact.html">문의</a>
+        <a href="pricing.html">가격안내</a>
+        <a href="booking.html">예약</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="home-heading"><p class="eyebrow">MAKE A DAY TO REMEMBER</p><h2>특별한 하루의 시작<span class="heading-dot">.</span><br />오늘, <span class="heading-brand">NOVA</span>에서.</h2><p class="home-heading-note">함께하는 순간을 더 특별하게.<br />50평대 통유리 프라이빗 라운지</p></section>
+      <div class="home-stage">
+      <!-- 시네마틱 무드 이미지 -->
+      <section class="nova-hero">
+        <img class="hero-media is-active" data-scene="0" src="assets/glass-room.png" alt="따뜻한 골드 조명과 우드 소재가 어우러진 라운지 무드 이미지" width="1800" height="1200" fetchpriority="high" />
+        <img class="hero-media" data-scene="1" src="assets/glass-party.png" alt="통유리 라운지에서 즐기는 프라이빗 파티" width="1536" height="1024" />
+        <img class="hero-media" data-scene="2" src="assets/glass-proposal.png" alt="장미꽃잎과 촛불로 이어지는 프로포즈 장면" width="1536" height="1024" />
+        <img class="hero-media" data-scene="3" src="assets/glass-seminar.png" alt="넓은 통유리 공간에서 함께하는 기업 세미나" width="1536" height="1024" />
+        <span class="hero-media-caption">LOUNGE INSPIRATION · 무드 이미지</span>
+
+        <div class="hero-content">
+          <p class="eyebrow">THE ART OF PRIVATE MOMENTS</p>
+
+          <h1>NOVA</h1>
+
+          <p class="hero-subtitle">PRIVATE LOUNGE</p>
+
+          <p class="hero-description">
+            50평대 통유리 너머로 펼쳐지는 특별한 공간<br />
+            당신의 모든 순간이 더욱 빛나도록
+          </p>
+
+          <div class="hero-actions">
+            <a href="locations.html" class="btn btn-gold"> 공간 둘러보기 </a>
+
+            <a href="booking.html" class="btn btn-outline"> 예약하기 </a>
+          </div>
+        </div>
+
+        <div class="scene-controls" role="group" aria-label="공간 장면 탐색"><span id="sceneCount" aria-live="off">01 / 04</span><button type="button" id="scenePrev" aria-label="이전 장면">←</button><button type="button" id="sceneNext" aria-label="다음 장면">→</button><button type="button" id="scenePause" aria-label="장면 자동 전환 일시정지" aria-pressed="false">Ⅱ</button></div>
+        <div class="scene-label"><span id="sceneName">THE SPACE</span><span class="scene-track"><i></i></span></div>
+        <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
+      </section>
+
+        <aside class="stage-side" aria-label="특별한 모임 추천">
+          <a href="party.html#bridal-guide" class="story-card bridal-story"><img src="assets/glass-bridal-shower.png" alt="드레스를 입은 다섯 친구의 브라이덜샤워" /><span class="story-tag">함께라서 더 빛나는</span><div><span>BRIDAL SHOWER</span><h3>우리의 가장<br />눈부신 하루</h3><p>드레스 무료 대여</p></div><b aria-hidden="true">↗</b></a>
+          <a href="party.html#proposal-guide" class="story-card proposal-story"><span class="story-tag">A MOMENT TO SAY YES</span><h3>마음을 전하는<br />가장 특별한 방법.</h3><p>프로포즈 세팅 +100,000원</p><img src="assets/glass-proposal.png" alt="장미꽃잎과 촛불의 프로포즈 세팅" loading="lazy" /><b aria-hidden="true">↗</b></a>
+        </aside>
+      </div>
+      <nav class="occasion-shortcuts" aria-label="행사 바로가기"><a href="party.html"><span class="shortcut-mark">✦</span><span>프라이빗 파티<small>우리만의 즐거운 시간</small></span><b aria-hidden="true">↗</b></a><a href="doljanchi.html"><span class="shortcut-mark">✿</span><span>돌잔치<small>첫 생일의 소중한 기억</small></span><b aria-hidden="true">↗</b></a><a href="seminar.html"><span class="shortcut-mark">↗</span><span>기업 세미나<small>아이디어가 모이는 곳</small></span><b aria-hidden="true">↗</b></a><a href="booking.html"><span class="shortcut-mark">＋</span><span>예약 · 견적<small>내 모임에 맞는 구성 찾기</small></span><b aria-hidden="true">↗</b></a></nav>
+      <div class="moment-ribbon" aria-hidden="true"><div>NOVA MOMENTS ✦ PRIVATE PARTY ✦ FIRST BIRTHDAY ✦ BRIDAL SHOWER ✦ SEMINAR ✦ NOVA MOMENTS ✦ PRIVATE PARTY ✦ FIRST BIRTHDAY ✦ BRIDAL SHOWER ✦ SEMINAR ✦</div></div>
+      <!-- 브랜드 소개 -->
+      <section class="intro-section">
+        <div class="reveal">
+          <p class="eyebrow">WELCOME TO NOVA</p>
+
+          <h2>
+            공간을 넘어,<br />
+            <em>특별한 경험</em>을 만나다.
+          </h2>
+
+          <p>
+            NOVA PRIVATE LOUNGE는<br />
+            소중한 사람들과 함께하는 시간을 위해<br />
+            프라이빗하고 감각적인 공간을 제공합니다.<br /><br />
+
+            브라이덜샤워, 생일파티, 돌잔치,<br />
+            가족모임부터 기업행사까지.<br />
+            당신의 특별한 순간을 완성합니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 공간 소개 -->
+      <section class="feature-split">
+        <div class="feature-image">
+          <img
+            src="assets/glass-room.png"
+            alt="라운지 공간 스타일 무드 이미지"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="feature-content reveal">
+          <p class="eyebrow">OUR SPACE</p>
+
+          <h2>
+            프라이빗함과<br />
+            여유로움의 조화
+          </h2>
+
+          <p>
+            감각적인 인테리어와 넓은 공간,<br />
+            특별한 분위기를 완성하는 디테일.<br /><br />
+
+            오직 당신과 소중한 사람들을 위한<br />
+            프라이빗 라운지를 경험해 보세요.
+          </p>
+
+          <a href="locations.html" class="btn btn-outline">
+            공간 자세히 보기 →
+          </a>
+        </div>
+      </section>
+
+      <!-- 행사 소개 -->
+      <section class="feature-split reverse">
+        <div class="feature-image">
+          <img
+            src="assets/celebration.jpg"
+            alt="라운지 공간 스타일 무드 이미지"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="feature-content reveal">
+          <p class="eyebrow">SPECIAL CELEBRATION</p>
+
+          <h2>
+            평범한 하루를<br />
+            특별한 기념일로
+          </h2>
+
+          <p>
+            브라이덜샤워부터 생일파티,<br />
+            돌잔치와 가족행사까지.<br /><br />
+
+            공간과 분위기, 그리고 소중한 추억이<br />
+            하나의 특별한 경험이 됩니다.
+          </p>
+
+          <a href="gallery.html" class="btn btn-outline"> 갤러리 보기 → </a>
+        </div>
+      </section>
+
+      <!-- 서비스 -->
+      <section class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">OUR SERVICES</p>
+
+          <h2>당신의 순간을 위한 서비스</h2>
+
+          <p>
+            특별한 모임부터 맞춤형 행사까지<br />
+            다양한 서비스를 제공합니다.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <img
+              src="assets/floral-table.jpg"
+              alt="브라이덜샤워"
+              loading="lazy"
+            />
+
+            <div class="service-card-content">
+              <span>01 / BRIDAL SHOWER</span>
+              <h3>브라이덜샤워</h3>
+              <p>소중한 친구들과 함께하는 특별한 웨딩 파티</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <img
+              src="assets/glass-party.png"
+              alt="케이크와 샴페인으로 꾸민 프라이빗 파티 AI 연출 이미지"
+              loading="lazy"
+            />
+
+            <div class="service-card-content">
+              <span>02 / PRIVATE PARTY</span>
+              <h3>프라이빗 파티</h3>
+              <p>생일·기념일·친구 모임, 프로포즈 세팅까지</p><a class="service-card-link" href="party.html">프라이빗 파티 알아보기 →</a>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <img
+              src="assets/dol-buffet.png"
+              alt="케이터링 서비스"
+              loading="lazy"
+            />
+
+            <div class="service-card-content">
+              <span>03 / CATERING</span>
+              <h3>케이터링</h3>
+              <p>행사의 품격을 더하는 맞춤형 다이닝 서비스</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dol-home-feature">
+        <img src="assets/glass-dol.png" alt="아이보리와 골드 장식으로 꾸민 돌상 AI 연출 이미지" loading="lazy" />
+        <div class="dol-home-content reveal">
+          <p class="eyebrow">A VERY FIRST CELEBRATION</p>
+          <h2>첫 돌, 가장 소중한<br />사람들과 함께.</h2>
+          <p>프라이빗한 공간에 정성스러운 돌상과 식사를 더해요.<br />우리 아이의 첫 생일을 위한 모든 준비.</p>
+          <p class="dol-home-prices">돌상 세팅 200,000원 <span> / </span> 케이터링 식사형 35,000원 · 핑거푸드형 20,000원 / 1인 예시</p>
+          <a href="doljanchi.html" class="btn btn-gold">돌잔치 안내 보기 →</a>
+        </div>
+      </section>
+
+      <section class="dol-home-feature seminar-home-feature"><img src="assets/glass-seminar.png" alt="대형 TV와 30인 테이블이 있는 세미나 공간 AI 연출 이미지" loading="lazy" /><div class="dol-home-content"><p class="eyebrow">BUSINESS & CONNECTION</p><h2>아이디어가 모이고,<br />가능성이 열리는 공간.</h2><p>30인 테이블 · 대형 TV · 음향시설 무료 제공.<br />샌드위치와 커피로 채우는 여유로운 네트워킹.</p><p class="dol-home-prices">식사형 또는 핑거푸드형 케이터링 선택 가능</p><a href="seminar.html" class="btn btn-gold">기업 세미나 안내 보기 →</a></div></section>
+      <!-- 공간 특징 -->
+      <section class="stats-section">
+        <div class="reveal">
+          <p class="eyebrow">WHY NOVA</p>
+          <h2>특별한 공간의 가치</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item reveal">
+            <strong>PRIVATE</strong>
+            <span>독립적인 프라이빗 공간</span>
+          </div>
+
+          <div class="stat-item reveal">
+            <strong>PREMIUM</strong>
+            <span>감각적인 공간 디자인</span>
+          </div>
+
+          <div class="stat-item reveal">
+            <strong>SPECIAL</strong>
+            <span>다양한 행사 및 맞춤형 서비스</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 예약 안내 -->
+      <section class="main-cta">
+        <div class="reveal">
+          <p class="eyebrow">RESERVE YOUR MOMENT</p>
+
+          <h2>
+            당신만의 특별한 순간을<br />
+            지금 예약하세요.
+          </h2>
+
+          <p>
+            NOVA PRIVATE LOUNGE에서<br />
+            잊지 못할 하루를 준비해 보세요.
+          </p>
+
+          <a href="booking.html" class="btn btn-gold"> 예약 및 견적 확인 → </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+      <p class="media-disclaimer">사진은 무드 이미지 및 AI 연출 이미지입니다.</p>
+      <p class="footer-logo">NOVA PRIVATE LOUNGE</p>
+
+      <p>PRIVATE MOMENTS, TIMELESS MEMORIES</p>
+
+      <div class="footer-links">
+        <a href="index.html">홈</a>
+        <a href="locations.html">지점안내</a>
+        <a href="gallery.html">갤러리</a>
+        <a href="party.html">프라이빗 파티</a>
+        <a href="doljanchi.html">돌잔치</a>
+        <a href="seminar.html">기업 세미나</a>
+        <a href="contact.html">문의</a>
+        <a href="pricing.html">가격안내</a>
+        <a href="booking.html">예약</a>
+      </div>
+
+      <small> © 2026 NOVA PRIVATE LOUNGE. ALL RIGHTS RESERVED. </small>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="experience.js"></script>
+  </body>
+</html>

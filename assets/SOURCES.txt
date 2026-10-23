@@ -1,0 +1,46 @@
+NOVA mood photography — downloaded 2026-10-23
+These are stock mood images, not photographs of NOVA premises.
+
+lounge.jpg
+https://unsplash.com/photos/4a-xheeuM5A
+https://images.unsplash.com/photo-1517248135467-4c7edcad34c4
+
+dining.jpg
+https://images.unsplash.com/photo-1414235077428-338989a2e8c0
+
+celebration.jpg
+https://images.unsplash.com/photo-1511795409834-ef04bbd61622
+
+floral-table.jpg
+https://images.unsplash.com/photo-1519225421980-715cb0215aed
+
+catering.jpg
+https://images.unsplash.com/photo-1555244162-803834f70033
+
+License: https://unsplash.com/license
+
+AI-generated practice images — 2026-10-23
+Built-in image_gen tool with the imagegen skill.
+dol-table.png: Korean first birthday dolsang table.
+dol-buffet.png: Korean private-event catered buffet.
+private-party.png: Intimate birthday cake and champagne table.
+These are fictional styled images, not real venue or service photographs.
+Full generation prompts: GENERATED-IMAGES.md
+
+Additional AI-generated practice images — 2026-10-23
+seminar-room.png: 30-seat corporate seminar room with a large TV and audio equipment.
+finger-food.png: Sandwiches, canapes, sweets, fruit and drinks for a coffee break.
+Generated using the built-in image_gen tool. These are fictional venue and menu styling examples.
+
+50-pyeong-class luxury glass venue practice images — 2026-10-23
+glass-room.png: spacious premium commercial venue with full-height glass windows.
+glass-party.png: private party table in the glass venue.
+glass-proposal.png: rose-petal path, LED candles and balloons.
+glass-dol.png: first-birthday table in the glass venue.
+glass-seminar.png: seminar tables and presentation equipment in the glass venue.
+Created with the built-in image_gen tool. AI styling examples, not actual customer reviews.
+Full prompts: GLASS-VENUE-PROMPTS.md
+
+glass-bridal-shower.png — five adult women in dresses celebrating a bridal shower in the luxury glass venue.
+Generated 2026-10-23 with the built-in image_gen tool. AI styling example, not an actual customer photograph.
+Full prompt: BRIDAL-SHOWER-PROMPT.md

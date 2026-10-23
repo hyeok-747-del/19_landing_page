@@ -1,1 +1,193 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><meta name="description" content="NOVA PRIVATE LOUNGE - 예약"><title>예약 | NOVA PRIVATE LOUNGE</title><link rel="stylesheet" href="style.css"></head><body><header class="header" id="header"><a aria-label="NOVA 홈" class="brand" href="index.html">NOVA<span>PRIVATE LOUNGE</span></a><button aria-expanded="false" aria-label="메뉴 열기" class="menu-toggle">☰</button><nav class="nav" id="nav"><a href="index.html">홈</a><a href="locations.html">지점안내</a><a href="gallery.html">갤러리</a><a href="contact.html">문의</a><a href="pricing.html">가격안내</a><a class="nav-book" href="booking.html">예약</a></nav></header><main><div class="subpage-spacer"></div><section class="booking section" id="booking"><div class="section-heading reveal"><p class="eyebrow">RESERVATION</p><h2>예약 문의</h2><p>예약 희망 내용을 작성하고 복사할 수 있습니다. 실제 접수 기능은 추후 연결 예정입니다.</p></div><form class="booking-form" id="booking-form"><label>희망 지점<select id="branch"><option>NOVA PRIVATE LOUNGE</option><option>반야월점</option><option>동대구점</option><option>앞산하녹점</option></select></label><label>희망 날짜<input id="date" required="" type="date"/></label><label>희망 시간<input id="time" required="" type="time"/></label><label>인원<input id="count" min="1" required="" type="number" value="5"/></label><label class="full">추가 요청사항<textarea id="notes" placeholder="이용 목적, 요청사항 등" rows="4"></textarea></label><button class="gold-btn full" type="submit">예약 문의 내용 복사하기 ↗</button><p aria-live="polite" class="full status" id="copy-status"></p></form></section></main><footer><div class="footer-logo">NOVA <span>PRIVATE LOUNGE</span></div><p>MAKE EVERY MOMENT EXTRAORDINARY.</p><small>© 2026 NOVA. All rights reserved.</small></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>예약하기 | NOVA PRIVATE LOUNGE</title>
+    <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="experience.css" />
+  </head>
+  <body class="nova-refresh">
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    <header class="header">
+      <a href="index.html" class="logo">NOVA<span>PRIVATE LOUNGE</span></a>
+      <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
+      <nav class="nav">
+        <a href="index.html">홈</a>
+        <a href="locations.html">지점안내</a>
+        <a href="gallery.html">갤러리</a>
+        <a href="party.html">프라이빗 파티</a>
+        <a href="doljanchi.html">돌잔치</a>
+        <a href="seminar.html">기업 세미나</a>
+        <a href="contact.html">문의</a>
+        <a href="pricing.html">가격안내</a>
+        <a href="booking.html" class="active">예약</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero media-hero">
+        <img class="page-hero-image" src="assets/lounge.jpg" alt="" aria-hidden="true" width="1800" height="1200" fetchpriority="high" />
+        <p class="eyebrow">RESERVATION</p>
+        <h1>공간 예약</h1>
+        <p>특별한 하루를 위한 프라이빗 공간</p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">ESTIMATE</p>
+          <h2>이용 견적 확인</h2>
+          <p>평일(월~목) 시간당 25,000원 · 주말(금~일) 시간당 30,000원<br />최소 3시간부터 이용 가능합니다.</p>
+        </div>
+
+        <div class="booking-layout">
+          <form id="bookingForm" class="booking-form" data-event="general">
+            <figure class="booking-mood">
+              <img src="assets/floral-table.jpg" alt="꽃과 유리잔으로 꾸민 프라이빗 다이닝 테이블 무드 이미지" width="1600" height="1067" loading="lazy" />
+              <figcaption><span>MAKE IT MEMORABLE</span>당신의 하루에, 섬세한 취향을 더해요.</figcaption>
+            </figure>
+            <div class="form-group">
+              <label for="branch">이용 지점</label>
+              <select id="branch" required>
+                <option value="nova">NOVA PRIVATE LOUNGE</option>
+              </select>
+            </div>
+
+            <div class="form-group event-type-field">
+              <label for="eventType">행사 종류</label>
+              <select id="eventType"><option value="party">프라이빗 파티</option><option value="dol">돌잔치</option><option value="seminar">기업 세미나</option></select>
+              <small id="eventFacilities">행사에 맞는 케이터링을 선택해 주세요.</small>
+            </div>
+            <div class="form-group">
+              <label for="date">이용 날짜</label>
+              <input type="date" id="date" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="startTime">시작 시간</label>
+                <select id="startTime" required></select>
+              </div>
+
+              <div class="form-group">
+                <label for="hours">이용 시간</label>
+                <select id="hours">
+                  <option value="3">3시간</option>
+                  <option value="4">4시간</option>
+                  <option value="5">5시간</option>
+                  <option value="6">6시간</option>
+                  <option value="7">7시간</option>
+                  <option value="8">8시간</option>
+                  <option value="9">9시간</option>
+                  <option value="10">10시간</option>
+                  <option value="11">11시간</option>
+                  <option value="12">12시간</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="guests">이용 인원</label>
+              <select id="guests"></select>
+              <small id="guestGuide">최소 10명부터 선택 가능합니다.</small>
+            </div>
+
+            <div class="form-group">
+              <label>추가 서비스</label>
+              <a class="service-guide-link" href="doljanchi.html">돌잔치 안내 ↗</a>
+
+              <label class="check-option">
+                <input type="checkbox" id="catering" />
+                <span>케이터링 서비스 추가</span>
+              </label>
+
+              <div id="cateringOptions" class="sub-options" hidden>
+                <label for="cateringType">케이터링 구성</label>
+                <select id="cateringType">
+                  <option value="meal">식사형 · 1인 35,000원</option>
+                  <option value="finger">핑거푸드형 · 1인 20,000원</option>
+                </select>
+                <p id="cateringMenu" class="catering-menu"></p>
+                <small>모든 행사에서 원하는 구성을 선택할 수 있습니다. 연습용 예시 단가이며 최종 메뉴와 운반·인력 비용은 상담 후 확정됩니다.</small>
+              </div>
+
+              <label class="check-option" id="dolTableOption">
+                <input type="checkbox" id="dolTable" />
+                <span>돌상 세팅 (+200,000원)</span>
+              </label>
+            </div>
+
+            <div class="form-group" id="proposalOption" hidden>
+              <label class="check-option"><input type="checkbox" id="proposal" /><span>프로포즈 세팅 (+100,000원)</span></label>
+              <small>입구부터 이어지는 장미꽃잎 길 · LED 촛불 · 풍선 장식</small>
+            </div>
+            <div class="form-group">
+              <label for="request">추가 요청사항</label>
+              <textarea
+                id="request"
+                rows="5"
+                placeholder="행사 목적, 요청사항 등을 입력해 주세요."
+              ></textarea>
+            </div>
+          </form>
+
+          <aside class="estimate-card">
+            <p id="bookingSelection" class="booking-selection" hidden></p>
+            <p class="eyebrow">YOUR ESTIMATE</p>
+            <h2>예상 이용 금액</h2>
+            <p id="rateSummary" class="rate-summary"></p>
+
+            <div class="estimate-line">
+              <span>공간 이용료</span>
+              <strong id="spaceAmount">0원</strong>
+            </div>
+
+            <div class="estimate-line">
+              <span>추가 인원</span>
+              <strong id="guestAmount">0원</strong>
+            </div>
+
+            <div class="estimate-line">
+              <span id="cateringSummary">케이터링 서비스</span>
+              <strong id="cateringAmount">0원</strong>
+            </div>
+
+            <div class="estimate-line" id="dolEstimateLine">
+              <span>돌상 세팅</span>
+              <strong id="dolAmount">0원</strong>
+            </div>
+
+            <div class="estimate-line" id="proposalEstimateLine" hidden><span>프로포즈 세팅</span><strong id="proposalAmount">0원</strong></div>
+            <div class="estimate-total">
+              <span>예상 합계</span>
+              <strong id="totalAmount" aria-live="polite">0원</strong>
+            </div>
+
+            <p class="estimate-note">
+              케이터링 서비스는 연습용 예시 단가입니다. 최종 금액 및 예약 가능 여부는 상담 후 확정됩니다. 본 페이지에서
+              예약이 자동 접수되지는 않습니다.
+            </p>
+
+            <button type="button" id="copyEstimate" class="btn btn-gold">
+              견적 내용 복사
+            </button>
+
+            <a href="contact.html" class="btn btn-outline"> 예약 문의하기 </a>
+            <a id="continueBooking" class="btn btn-outline" href="booking.html" hidden>이 조건으로 예약 페이지 이동 →</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="media-disclaimer">사진은 무드 이미지 및 AI 연출 이미지입니다.</p>
+      <p class="footer-logo">NOVA PRIVATE LOUNGE</p>
+      <p>PRIVATE MOMENTS, TIMELESS MEMORIES</p>
+      <small>© 2026 NOVA PRIVATE LOUNGE</small>
+    </footer>
+
+    <script src="estimate.js"></script>
+    <script src="script.js"></script>
+    <script src="experience.js"></script>
+  </body>
+</html>

@@ -1,1 +1,364 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><meta name="description" content="NOVA PRIVATE LOUNGE - 갤러리"><title>갤러리 | NOVA PRIVATE LOUNGE</title><link rel="stylesheet" href="style.css"></head><body><header class="header" id="header"><a aria-label="NOVA 홈" class="brand" href="index.html">NOVA<span>PRIVATE LOUNGE</span></a><button aria-expanded="false" aria-label="메뉴 열기" class="menu-toggle">☰</button><nav class="nav" id="nav"><a href="index.html">홈</a><a href="locations.html">지점안내</a><a href="gallery.html">갤러리</a><a href="contact.html">문의</a><a href="pricing.html">가격안내</a><a class="nav-book" href="booking.html">예약</a></nav></header><main><div class="subpage-spacer"></div><section class="gallery-section section" id="gallery"><div class="section-heading reveal"><p class="eyebrow">GALLERY</p><h2>공간의 순간들</h2><p>옆으로 넘겨 다양한 분위기를 살펴보세요.</p></div><div class="gallery-track"><img alt="갤러리 예시 인테리어 1" loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&amp;q=85"/><img alt="갤러리 예시 인테리어 2" loading="lazy" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000&amp;q=85"/><img alt="갤러리 예시 인테리어 3" loading="lazy" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&amp;q=85"/><img alt="갤러리 예시 인테리어 4" loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&amp;q=85"/></div><p class="photo-note">* 예시 이미지이며 실제 NOVA 공간 사진이 아닙니다.</p></section></main><footer><div class="footer-logo">NOVA <span>PRIVATE LOUNGE</span></div><p>MAKE EVERY MOMENT EXTRAORDINARY.</p><small>© 2026 NOVA. All rights reserved.</small></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="NOVA PRIVATE LOUNGE 갤러리. 브라이덜샤워, 생일파티, 돌잔치, 프라이빗 파티 및 케이터링 공간."
+    />
+
+    <title>갤러리 | NOVA PRIVATE LOUNGE</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .gallery-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 35px 0 45px;
+      }
+
+      .filter-btn {
+        padding: 12px 22px;
+        border: 1px solid #494037;
+        background: transparent;
+        color: #d6d1c9;
+        cursor: pointer;
+        font-size: 13px;
+        transition: 0.3s;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: #c9a66b;
+        border-color: #c9a66b;
+        color: #111;
+      }
+
+      .nova-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        max-width: 1250px;
+        margin: 0 auto;
+      }
+
+      .nova-gallery-item {
+        position: relative;
+        overflow: hidden;
+        background: #171719;
+        cursor: pointer;
+        border: 1px solid #2c2926;
+      }
+
+      .nova-gallery-item img {
+        display: block;
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+      }
+
+      .nova-gallery-item:hover img {
+        transform: scale(1.08);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 25px;
+        background: linear-gradient(transparent 35%, rgba(0, 0, 0, 0.85));
+      }
+
+      .gallery-overlay span {
+        color: #d3af75;
+        font-size: 11px;
+        letter-spacing: 2px;
+      }
+
+      .gallery-overlay h3 {
+        margin: 10px 0 0;
+        color: white;
+        font-size: 21px;
+        font-weight: 500;
+      }
+
+      .nova-gallery-item.is-hidden {
+        display: none;
+      }
+
+      .gallery-lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 25px;
+      }
+
+      .gallery-lightbox.open {
+        display: flex;
+      }
+
+      .gallery-lightbox img {
+        max-width: 90vw;
+        max-height: 78vh;
+        object-fit: contain;
+      }
+
+      .lightbox-title {
+        color: #d3af75;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        border: none;
+        background: transparent;
+        color: white;
+        font-size: 38px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 900px) {
+        .nova-gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .nova-gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nova-gallery-item img {
+          height: 320px;
+        }
+
+        .filter-btn {
+          padding: 10px 14px;
+          font-size: 12px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="experience.css" />
+  </head>
+
+  <body class="nova-refresh">
+    <!-- 상단 메뉴 -->
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    <header class="header">
+      <a href="index.html" class="logo">
+        NOVA
+        <span>PRIVATE LOUNGE</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
+
+      <nav class="nav">
+        <a href="index.html">홈</a>
+        <a href="locations.html">지점안내</a>
+        <a href="gallery.html" class="active">갤러리</a>
+        <a href="party.html">프라이빗 파티</a>
+        <a href="doljanchi.html">돌잔치</a>
+        <a href="seminar.html">기업 세미나</a>
+        <a href="contact.html">문의</a>
+        <a href="pricing.html">가격안내</a>
+        <a href="booking.html">예약</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- 갤러리 타이틀 -->
+      <section class="page-hero media-hero">
+        <img class="page-hero-image" src="assets/glass-room.png" alt="" aria-hidden="true" width="1800" height="1200" fetchpriority="high" />
+        <p class="eyebrow">OUR GALLERY</p>
+        <h1>GALLERY</h1>
+        <p>
+          공간이 만들어내는 특별한 순간<br />
+          NOVA PRIVATE LOUNGE
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">DISCOVER NOVA</p>
+          <h2>특별한 순간을 담은 공간</h2>
+          <p class="dol-fine">50평대 통유리 공간을 자연스러운 방문 사진 스타일로 표현한 AI 연출 이미지와 메뉴 무드 사진입니다. 실제 이용후기 사진은 아닙니다. <a class="service-guide-link" href="doljanchi.html">돌잔치 구성 알아보기 →</a></p>
+          <p>
+            브라이덜샤워부터 프라이빗 파티까지<br />
+            NOVA의 다양한 공간과 스타일을 만나보세요.
+          </p>
+        </div>
+
+        <!-- 카테고리 -->
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all">전체</button>
+
+          <button class="filter-btn" data-filter="space">공간</button>
+
+          <button class="filter-btn" data-filter="bridal">브라이덜샤워</button>
+
+          <button class="filter-btn" data-filter="party">프라이빗 파티</button>
+
+          <button class="filter-btn" data-filter="seminar">기업 세미나</button>
+          <button class="filter-btn" data-filter="proposal">프로포즈</button>
+          <button class="filter-btn" data-filter="dol">돌잔치</button>
+          <button class="filter-btn" data-filter="catering">케이터링</button>
+        </div>
+
+        <!-- 갤러리 이미지 -->
+        <div class="nova-gallery-grid">
+          <article class="nova-gallery-item reveal" data-category="space"><img src="assets/glass-room.png" alt="통유리와 넓은 행사 공간을 보여주는 AI 연출 이미지" loading="lazy" /><div class="gallery-overlay"><span>THE SPACE</span><h3>50평대 통유리 라운지</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="party"><img src="assets/glass-party.png" alt="통유리 라운지에 차린 파티 테이블 AI 연출 이미지" loading="lazy" /><div class="gallery-overlay"><span>PRIVATE PARTY</span><h3>프라이빗 파티 테이블</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="proposal"><img src="assets/glass-proposal.png" alt="입구부터 이어지는 장미꽃잎 길과 촛불 AI 연출 이미지" loading="lazy" /><div class="gallery-overlay"><span>PROPOSAL</span><h3>장밋길 · 촛불 · 풍선</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="dol"><img src="assets/glass-dol.png" alt="통유리 공간의 돌잔치 세팅 AI 연출 이미지" loading="lazy" /><div class="gallery-overlay"><span>FIRST BIRTHDAY</span><h3>우리 아이 첫 생일</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="seminar"><img src="assets/glass-seminar.png" alt="30인 테이블과 TV를 갖춘 세미나 공간 AI 연출 이미지" loading="lazy" /><div class="gallery-overlay"><span>BUSINESS SEMINAR</span><h3>세미나 좌석과 발표 공간</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="bridal"><img src="assets/floral-table.jpg" alt="꽃과 패브릭으로 꾸민 테이블 무드 사진" loading="lazy" /><div class="gallery-overlay"><span>BRIDAL SHOWER</span><h3>플라워 테이블 스타일</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="catering"><img src="assets/catering.jpg" alt="행사 음식과 식기를 차린 식사형 케이터링 무드 사진" loading="lazy" /><div class="gallery-overlay"><span>MEAL CATERING</span><h3>함께 나누는 식사</h3></div></article>
+          <article class="nova-gallery-item reveal" data-category="catering"><img src="assets/finger-food.png" alt="샌드위치와 다과, 음료 AI 연출 이미지" loading="lazy" /><div class="gallery-overlay"><span>FINGER FOOD</span><h3>샌드위치와 커피 브레이크</h3></div></article>
+        </div>
+      </section>
+
+      <!-- 예약 유도 -->
+      <section class="contact-bottom">
+        <div class="reveal">
+          <p class="eyebrow">YOUR SPECIAL DAY</p>
+
+          <h2>
+            특별한 공간에서<br />
+            잊지 못할 순간을
+          </h2>
+
+          <p>NOVA PRIVATE LOUNGE에서 당신만의 특별한 하루를 만들어보세요.</p>
+
+          <a href="booking.html" class="btn btn-gold"> 예약 및 견적 확인 → </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- 이미지 확대 화면 -->
+    <div
+      class="gallery-lightbox"
+      id="galleryLightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="갤러리 이미지 확대"
+    >
+      <button class="lightbox-close" id="lightboxClose" aria-label="닫기">
+        &times;
+      </button>
+
+      <img id="lightboxImage" src="" alt="확대 이미지" />
+
+      <p class="lightbox-title" id="lightboxTitle"></p>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+      <p class="media-disclaimer">사진은 무드 이미지 및 AI 연출 이미지입니다.</p>
+      <p class="footer-logo">NOVA PRIVATE LOUNGE</p>
+
+      <p>PRIVATE MOMENTS, TIMELESS MEMORIES</p>
+
+      <div class="footer-links">
+        <a href="index.html">홈</a>
+        <a href="locations.html">지점안내</a>
+        <a href="gallery.html">갤러리</a>
+        <a href="party.html">프라이빗 파티</a>
+        <a href="doljanchi.html">돌잔치</a>
+        <a href="seminar.html">기업 세미나</a>
+        <a href="contact.html">문의</a>
+        <a href="pricing.html">가격안내</a>
+        <a href="booking.html">예약</a>
+      </div>
+
+      <small> © 2026 NOVA PRIVATE LOUNGE. ALL RIGHTS RESERVED. </small>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="experience.js"></script>
+
+    <!-- 갤러리 전용 기능 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filters = document.querySelectorAll(".filter-btn");
+        const items = document.querySelectorAll(".nova-gallery-item");
+
+        const lightbox = document.getElementById("galleryLightbox");
+        const lightboxImage = document.getElementById("lightboxImage");
+        const lightboxTitle = document.getElementById("lightboxTitle");
+        const closeButton = document.getElementById("lightboxClose");
+
+        // 카테고리 필터
+        filters.forEach((button) => {
+          button.addEventListener("click", function () {
+            filters.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            const category = this.dataset.filter;
+
+            items.forEach((item) => {
+              const match =
+                category === "all" || item.dataset.category === category;
+
+              item.classList.toggle("is-hidden", !match);
+            });
+          });
+        });
+
+        // 이미지 확대
+        items.forEach((item) => {
+          item.addEventListener("click", function () {
+            const img = this.querySelector("img");
+            const title = this.querySelector("h3");
+
+            if (!img || !img.complete || !img.naturalWidth) {
+              return;
+            }
+
+            lightboxImage.src = img.src;
+            lightboxImage.alt = img.alt;
+            lightboxTitle.textContent = title ? title.textContent : "";
+
+            lightbox.classList.add("open");
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        // 이미지 닫기
+        function closeLightbox() {
+          lightbox.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
+        closeButton.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", function (event) {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
